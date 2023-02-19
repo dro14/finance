@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table>
+        <thead>
+            <tr>
+                <th>Transacted</th>
+                <th>Type</th>
+                <th>Company name</th>
+                <th>Symbol</th>
+                <th>Price</th>
+                <th>Shares</th>
+                <th>Value</th>
+                <th>Cash</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+                <tr>
+                    <td>{{ record["transacted"] }}</td>
+                    <td>{{ record["type"] }}</td>
+                    <td>{{ record["name"] }}</td>
+                    <td>{{ record["symbol"] }}</td>
+                    <td>{{ record["price"] }}</td>
+                    <td>{{ record["shares"] }}</td>
+                    <td>{{ record["value"] }}</td>
+                    <td>{{ record["cash"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

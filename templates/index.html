@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home page
+{% endblock %}
+
+{% block main %}
+    </body>
+    <head>
+        <meta http-equiv="refresh" content="60">
+    </head>
+    <body>
+    <table>
+        <thead>
+            <tr>
+                <th>Company name</th>
+                <th>Symbol</th>
+                <th>Price</th>
+                <th>Shares</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+                <tr>
+                    <td>{{ record["name"] }}</td>
+                    <td>{{ record["symbol"] }}</td>
+                    <td>{{ record["price"] }}</td>
+                    <td>{{ record["shares"] }}</td>
+                    <td>{{ record["value"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">Total value</td>
+                <td class="border-0 text-end">{{ total_value }}</td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+                <td class="border-0 text-end">{{ cash }}</td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">Total value + Cash</td>
+                <td class="border-0 text-end">{{ grand_total }}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

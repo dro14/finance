@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <div class="mb-3">
+            <select class="mx-auto w-auto" name="symbol">
+                <option disabled selected>Choose a stock</option>
+                <optgroup label="You currently own">
+                {% for record in records %}
+                    {% set symbol = record["symbol"] %}
+                    <option value="{{ symbol }}">{{ record["shares"] }} shares of {{ record["symbol"] }} [{{ record["name"] }}] stock</option>
+                {% endfor %}
+                </optgroup>
+            </select>
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" min="1" name="shares" placeholder="Shares" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}
