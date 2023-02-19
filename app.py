@@ -360,3 +360,6 @@ def sell():
                    userid, current_time, transaction_type, name, symbol, price, shares, shares, price, cash)
 
         return redirect("/")
+
+if __name__ == '__main__':
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
